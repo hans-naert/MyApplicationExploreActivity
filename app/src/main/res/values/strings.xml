@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Application Explore Activity</string>
+    <string name="toast_button">Show Toast</string>
+</resources>
