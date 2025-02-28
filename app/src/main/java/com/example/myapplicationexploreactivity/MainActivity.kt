@@ -33,10 +33,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button).setOnClickListener {
                 Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
                 //finish()
-                //val intent = Intent(this, SecondActivity::class.java)
-
-            val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:10086")
+                val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("extra_string", "Hello from MainActivity")
             startActivity(intent)
         }
     }
