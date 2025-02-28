@@ -2,6 +2,7 @@ package com.example.myapplicationexploreactivity
 
 import android.content.Intent
 import android.icu.lang.UCharacter.GraphemeClusterBreak.V
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -32,8 +33,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button).setOnClickListener {
                 Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
                 //finish()
-                val intent = Intent(this, SecondActivity::class.java)
-                startActivity(intent)
+                //val intent = Intent(this, SecondActivity::class.java)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.google.com")
+            startActivity(intent)
         }
     }
 
