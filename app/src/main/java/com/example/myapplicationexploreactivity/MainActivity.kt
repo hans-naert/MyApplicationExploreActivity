@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
                 //finish()
                 //val intent = Intent(this, SecondActivity::class.java)
 
-            val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://www.google.com")
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:10086")
             startActivity(intent)
         }
     }
