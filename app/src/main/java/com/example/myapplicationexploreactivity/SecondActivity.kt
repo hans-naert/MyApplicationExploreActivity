@@ -1,7 +1,10 @@
 package com.example.myapplicationexploreactivity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,5 +22,12 @@ class SecondActivity : AppCompatActivity() {
         }
         val extraData = intent.getStringExtra("extra_string")
         Log.d("SecondActivity", "extra data is $extraData")
+        val button2 = findViewById<Button>(R.id.button2)
+        button2.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("data_return", "Hello FirstActivity")
+            setResult(RESULT_OK, intent)
+            finish()
+        }
     }
 }

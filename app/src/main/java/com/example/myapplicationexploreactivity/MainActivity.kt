@@ -1,5 +1,6 @@
 package com.example.myapplicationexploreactivity
 
+import android.app.ComponentCaller
 import android.content.Intent
 import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.net.Uri
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 //finish()
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("extra_string", "Hello from MainActivity")
-            startActivity(intent)
+                startActivityForResult(intent, 1)
         }
     }
 
@@ -52,5 +53,20 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT).show()
         }
         return true
+    }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?,
+        caller: ComponentCaller
+    ) {
+        super.onActivityResult(requestCode, resultCode, data, caller)
+        when(requestCode) {
+            1 -> if (resultCode == RESULT_OK) {
+                val returnedData = data?.getStringExtra("data_return")
+                Toast.makeText(this, "Returned data is $returnedData", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
